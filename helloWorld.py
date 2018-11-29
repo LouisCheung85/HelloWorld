@@ -4,5 +4,8 @@ print("Hello World")
 def m1(a,b):
 	return a+b
 	
-def m2(ab):
+def m2(a,b):
 	return a-b
+	
+def m3(a,b)
+	return a*b
