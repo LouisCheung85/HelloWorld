@@ -9,3 +9,7 @@ def m2(a,b):
 	
 def m3(a,b)
 	return a*b
+	
+if __name__=="__main__":
+	print(m1(1,2))
+
