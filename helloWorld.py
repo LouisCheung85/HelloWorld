@@ -1,8 +1,23 @@
-import re
-import os
-#print("Hello World")
-# python tests 3223232fdsafadsdsAVX
+class ca(object):
+    
+    def __init__(self):
+      self.Data=[]
 
-str="\r\n";
-print(re.match('\s+',str))
-#print(os.path.split(os.path.realpath(__file__))[0])
+    def add(self,list):
+      self.Data.extend(list)
+
+    def out(self):
+       for i in self.Data:
+           print(i)
+
+if __name__=="__main__":
+    c =ca()
+
+    c.add([1,2,5])
+
+    c.add([7,8,6])
+
+    c.out()
+
+    print(c.Data)
+
