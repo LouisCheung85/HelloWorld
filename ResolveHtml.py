@@ -1,41 +1,44 @@
 from html.parser import HTMLParser
 
+
 class houseDebet(HTMLParser):
 
-    debetlistcur=[]
+    debetlistcur = []
 
-    debetlist=[]
-    
-    is_dd=False
+    debetlist = []
+
+    is_dd = False
+
     def __init__(self):
         HTMLParser.__init__(self)
-        self.debetlist=[]
-    
-    def handle_starttag(self,tag,attrs):
-        #print(tag)
-        if tag=="dd":
-            self.is_dd=True
-        #pass
-    
-    def handle_endtag(self,tag):
+        self.debetlist = []
+
+    def handle_starttag(self, tag, attrs):
+        # print(tag)
+        if tag == "dd":
+            self.is_dd = True
+        # pass
+
+    def handle_endtag(self, tag):
        # print(tag)
-        if tag=="dd":
-            self.is_dd=False
+        if tag == "dd":
+            self.is_dd = False
             self.debetlist.append(self.debetlistcur[:])
             self.debetlistcur.clear()
 
-    def handle_data(self,data):
+    def handle_data(self, data):
        # print(data)
-        if self.is_dd and len(data.strip())>0:
+        if self.is_dd and len(data.strip()) > 0:
             self.debetlistcur.append(data.strip())
          #   if len(self.debetlistcur)==5:
-    
+
     def outputResult(self):
         for ele in self.debetlist:
             print(ele)
 
-if __name__ =="__main__":
-    house=houseDebet()
+
+if __name__ == "__main__":
+    house = houseDebet()
     house.feed(r"""<dd> 
     <div>333</div>
     <div>1113.12</div>
