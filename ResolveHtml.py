@@ -23,7 +23,7 @@ class houseDebet(HTMLParser):
        # print(tag)
         if tag == "dd":
             self.is_dd = False
-            self.debetlist.append(self.debetlistcur[:])
+            self.debetlist.append(tuple(self.debetlistcur[:]))
             self.debetlistcur.clear()
 
     def handle_data(self, data):
@@ -36,10 +36,13 @@ class houseDebet(HTMLParser):
         for ele in self.debetlist:
             print(ele)
 
+    def getResult(self):
+        return self.debetlist
+
 
 if __name__ == "__main__":
-    house = houseDebet()
-    house.feed(r"""<dd> 
+    house=houseDebet()
+    house.feed(r"""<dd>
     <div>333</div>
     <div>1113.12</div>
     <div>11.93</div>
