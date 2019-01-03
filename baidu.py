@@ -2,7 +2,7 @@ import urllib.request
 
 
 def main():
-    keyword = urllib.parse.urlencode({"wd": "test"})
+    keyword = urllib.parse.urlencode({"wd": "test2"})
     # keyword=keyword.encode("utf-8")
     url = "http://www.baidu.com/s?%s" % keyword
 
