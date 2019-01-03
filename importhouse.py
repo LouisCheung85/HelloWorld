@@ -4,10 +4,11 @@ import os
 
 def insertData(data=[]):
   mydb = mysql.connector.connect(
-    host="192.168.145.93",
-    user="root",
-    passwd="Aa111111",
-    database="jiaoshi_2_new"
+    host="47.104.237.7",
+    user="louis",
+    passwd="Aa@111111",
+    database="test_db",
+    auth_plugin='mysql_native_password'
   )
   
   cur=mydb.cursor()
@@ -22,6 +23,7 @@ def insertData(data=[]):
   cur.executemany(sql,values)
 
   mydb.commit()
+  mydb.close()
 
 def gethtmlData():
     curpath=os.path.split(os.path.realpath(__file__))[0]
